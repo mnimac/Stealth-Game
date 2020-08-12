@@ -9,6 +9,6 @@ Reach the blue finish tile without being seen by the Guards and their Spotlight.
 
 >To exit the game press `Esc`. 
 
-<img src="https://imgur.com/a/xipGb8R">
+![](images/Keep-To-The-Shadows.png)
 
 This game was made in **Unity**.
