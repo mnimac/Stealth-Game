@@ -1,7 +1,7 @@
 # Stealth-Game
 2.5D video game
  
-------------------------------------------------------------------------------------------------------------------------------------------
+---
 ## How to play?
 
 Reach the blue finish tile without being seen by the Guards and their Spotlight.
