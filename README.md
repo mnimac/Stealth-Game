@@ -4,7 +4,7 @@
 ---
 ## How to play?
 
-Open `Build` folder and to start `Keep-To-The-Shadows.exe`.
+Open `Build` folder and start `Keep-To-The-Shadows.exe`.
 
 Reach the blue finish tile without being seen by the Guards and their Spotlight.
 
