@@ -4,7 +4,7 @@
 ---
 ## How to play?
 
-Open `Build` foldder and start `Keep-To-The-Sadows` file.
+Open `Build` folder and start `Keep-To-The-Sadows` file.
 
 Reach the blue finish tile without being seen by the Guards and their Spotlight.
 
