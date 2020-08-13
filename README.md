@@ -4,10 +4,13 @@
 ---
 ## How to play?
 
-Reach the blue finish tile without being seen by the Guards and their Spotlight.
-> Use `WASD` or `arrow keys` for movement.
+Open `Build` foldder and start `Keep-To-The-Sadows` file.
 
->To exit the game press `Esc`. 
+Reach the blue finish tile without being seen by the Guards and their Spotlight.
+
+Use `WASD` or `arrow keys` for movement.
+
+To exit the game press `Esc`. 
 
 ![](images/Keep-To-The-Shadows.png)
 
