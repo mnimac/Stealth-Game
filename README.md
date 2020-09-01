@@ -15,3 +15,5 @@ To exit the game press `Esc`.
 ![](images/Keep-To-The-Shadows.png)
 
 This game was made in **Unity**.
+
+Based on tutorial series found here: https://www.youtube.com/playlist?list=PLFt_AvWsXl0fnA91TcmkRyhhixX9CO3Lw
