@@ -2,12 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {   
     public GameObject gameLoseUI;
     public GameObject gameWonUI;   
     public GameObject raiseTheAlarm;
+    public GameObject scoreBox;
+    public Text timeBox, bestTimeBox;
+
+    //public int countdownTime;
+    public float timeStart;
+    public static float highScore;
+
+    public static int i = 0;
 
     bool gameOver;
 
@@ -16,20 +25,32 @@ public class GameUI : MonoBehaviour
         Guard.OnGuardHasSpottedPlayer += showGameLoseUI;
 
         FindObjectOfType<Player> ().OnReachedEnd += showGameWonUI;
+
+        timeBox.text = timeStart.ToString("F2");
     }
 
     void Update()
     {
         if (gameOver){
             if (Input.GetKeyDown(KeyCode.Space)) {
-                SceneManager.LoadScene(0);
-            }
+                SceneManager.LoadScene(0);                           
+            }                      
         }
-        
-        if (Input.GetKeyDown(KeyCode.Escape))
-        Application.Quit();
-    }
 
+        if(!gameOver){
+            timeStart += Time.deltaTime;
+            timeBox.text = timeStart.ToString("F2");
+        }
+    }
+/*
+    IEnumerator CountDownToStart(){
+        while(countdownTime > 0){
+            countdownText.text = countdownTime.ToString();
+            yield return new WaitForSeconds(1f);
+            countdownTime--;
+        }
+    }
+*/
     IEnumerator FlickeringAlarm(){     
         while(gameOver){
             raiseTheAlarm.SetActive(true);
@@ -39,6 +60,20 @@ public class GameUI : MonoBehaviour
         }                
     }
 
+    void BestTime(){    
+        while (i!=1){
+            highScore = timeStart;
+            i++;
+        } 
+    
+        if(highScore > timeStart){        
+            highScore = timeStart;
+        }
+
+        bestTimeBox.text = highScore.ToString("F2") + " is THE best time.";
+        scoreBox.SetActive(true);
+    }
+
     void showGameLoseUI(){
         OnGameOver(gameLoseUI);
         StartCoroutine("FlickeringAlarm");
@@ -46,6 +81,7 @@ public class GameUI : MonoBehaviour
 
     void showGameWonUI(){
         OnGameOver(gameWonUI);
+        BestTime();
     }
 
     void OnGameOver(GameObject gameOverUI) {
