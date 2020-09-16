@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class Player : MonoBehaviour
     public float moveSpeed = 7;
     public float smoothMoveTime = .1f;
 	public float turnSpeed = 8;
+	int count = 0;
 
 	float angle;
 	float smoothInputMagnitude;
 	float smoothMoveVelocity;
+
     Vector3 velocity;
 
 //adding rigidbody
@@ -24,6 +27,7 @@ public class Player : MonoBehaviour
 		rigidbody = GetComponent<Rigidbody> ();
 
 		Guard.OnGuardHasSpottedPlayer += Disable;
+
 	}
 
 //moving the player
@@ -40,13 +44,20 @@ public class Player : MonoBehaviour
 		angle = Mathf.LerpAngle (angle, targetAngle, Time.deltaTime * turnSpeed * inputMagnitude);
 
 		velocity = transform.forward * moveSpeed * smoothInputMagnitude;
+		
     }
 
 	void OnTriggerEnter(Collider hitCollider) {
-		if(hitCollider.tag == "Finish") {
-			Disable();
-			if (OnReachedEnd != null)
-				OnReachedEnd();
+		if(hitCollider.tag == "Coin"){ 
+			Destroy(hitCollider.gameObject);
+			count++;
+		}
+		if (count == 6){
+			if(hitCollider.tag == "Finish") {
+				Disable();
+				if (OnReachedEnd != null)
+					OnReachedEnd();
+			}
 		}
 	}
 

@@ -11,8 +11,7 @@ public class GameUI : MonoBehaviour
     public GameObject raiseTheAlarm;
     public GameObject scoreBox;
     public Text timeBox, bestTimeBox;
-
-    //public int countdownTime;
+    
     public float timeStart;
     public static float highScore;
 
@@ -28,12 +27,13 @@ public class GameUI : MonoBehaviour
 
         timeBox.text = timeStart.ToString("F2");
     }
-
+ 
     void Update()
     {
         if (gameOver){
             if (Input.GetKeyDown(KeyCode.Space)) {
-                SceneManager.LoadScene(0);                           
+                SceneManager.LoadScene(0);
+                Scoring.coinScore = 0;                           
             }                      
         }
 
@@ -42,15 +42,7 @@ public class GameUI : MonoBehaviour
             timeBox.text = timeStart.ToString("F2");
         }
     }
-/*
-    IEnumerator CountDownToStart(){
-        while(countdownTime > 0){
-            countdownText.text = countdownTime.ToString();
-            yield return new WaitForSeconds(1f);
-            countdownTime--;
-        }
-    }
-*/
+
     IEnumerator FlickeringAlarm(){     
         while(gameOver){
             raiseTheAlarm.SetActive(true);
